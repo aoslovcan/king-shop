@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Option } from "shared/utils";
-import {SelectIcon} from "../../assets/icons";
-import {dropdownContainer, selectContainer} from "./Select.styles.ts"; // Assuming Option is correctly imported from utils
+import {SelectIcon} from "shared/assets/icons";
+import {dropdownContainer, selectContainer} from "./Select.styles"; // Assuming Option is correctly imported from utils
 
 interface SelectProps {
     handleOnChange?: (item: Option) => void;
