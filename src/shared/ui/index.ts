@@ -5,3 +5,4 @@ export {Loading} from "./Loading/Loading.tsx";
 export {Text} from "./Text/Text";
 export {ProductCard} from "./ProductCard/ProductCard.tsx";
 export {Modal} from "./Modal/Modal";
+export {Select} from "./Select/Select";

@@ -36,6 +36,10 @@ export default {
         xs: '1px',
       },
 
+      boxShadow: {
+        base: '0px 0px 0.5px 0.5px #F0ECE5',
+      },
+
       keyframes: {
         'fade-in': {
           '0%': {

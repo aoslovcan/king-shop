@@ -24,3 +24,9 @@ export type ApiResponse<T> = {
   /** An error object containing the error data. */
   error?: { error: T };
 };
+
+export type Option = {
+  id: number,
+  value: string | number,
+  label: string,
+}
