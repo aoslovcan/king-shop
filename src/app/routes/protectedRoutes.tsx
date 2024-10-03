@@ -8,11 +8,10 @@ const { HomePage } = lazyImport(() => import('pages/home/HomePage'), 'HomePage')
 
 export const protectedRoutes: RouteType[] = [
   {
-    path: '/', // Parent route for rendering the Outlet
     element: <MainLayout />, // Outlet for rendering child routes
     children: [
       {
-        path: 'home', // Path for HomePage (renders at `/home`)
+        path: '/home', // Path for HomePage (renders at `/home`)
         element: <HomePage />
       },
       {

@@ -31,6 +31,34 @@ export default {
           secondary: "#869F9F",
         }
       },
+
+      backdropBlur: {
+        xs: '1px',
+      },
+
+      keyframes: {
+        'fade-in': {
+          '0%': {
+            opacity: 0,
+          },
+
+          '100%': {
+            opacity: 1,
+          },
+        },
+        'fade-out': {
+          '0%': {
+            opacity: 1,
+          },
+          '100%': {
+            opacity: 0,
+          },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.3s both',
+        'fade-out': 'fade-out 0.3s both',
+      },
       fontSize: {
         '3xs': '8px',
         '2xs': '10px',
