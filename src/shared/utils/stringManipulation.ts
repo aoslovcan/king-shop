@@ -5,5 +5,10 @@ export const trimTextToFullSentence = (text, maxLength) => {
     const lastDotIndex = trimmedText.lastIndexOf('.'); // Find the last period within that limit
 
     // If there's a dot in the trimmed section, return the text up to and including the last full stop
-    return lastDotIndex !== -1 ? trimmedText.substring(0, lastDotIndex + 1) : trimmedText;
+    if (lastDotIndex !== -1) {
+        return trimmedText.substring(0, lastDotIndex + 1);
+    } else {
+        // If there's no dot, return the trimmed text with three dots
+        return trimmedText + '...';
+    }
 };

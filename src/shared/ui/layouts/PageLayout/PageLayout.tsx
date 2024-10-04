@@ -12,7 +12,7 @@ export const PageLayout = ({children} : PageLayoutProps) => {
             <div className="flex flex-col p-6 pt-16">
                 <Header/>
                 <div className="flex flex-row mt-[60px] h-full gap-4">
-                    <div className="w-1/5 h-[100vh]">
+                    <div className="w-1/5 h-[100vh] sticky top-16">
                         <PageSideBar/>
                     </div>
                     <div className="w-4/5 h-full">

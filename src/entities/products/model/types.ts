@@ -3,7 +3,6 @@ export interface GeneralApplicationParams  {
     orderBy?: string
     search?: string
     limit: number
-    page: number
 }
 
 export interface DataWithMeta<T> {
