@@ -1,0 +1,11 @@
+.range-slider{
+ background: #C1DCDC;
+}
+
+.range-slider__thumb{
+    background: #869F9F !important;
+}
+
+.range-slider__range{
+    background:  #869F9F !important;
+}
