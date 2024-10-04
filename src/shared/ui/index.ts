@@ -7,4 +7,5 @@ export {ProductCard} from "./ProductCard/ProductCard.tsx";
 export {Modal} from "./Modal/Modal";
 export {Select} from "./Select/Select";
 export {CustomRangeSlider} from "./RangeSlider/RangeSlider";
-export {Checkbox} from "./Checkbox/Checkbox.tsx";
+export {Checkbox} from "./Checkbox/Checkbox";
+export {Input} from "./Input/Input"
