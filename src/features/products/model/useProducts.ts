@@ -12,8 +12,6 @@ export const useProducts = ({limit, searchValue, order, sortBy} : useProductsPro
 
 
     let params = {limit: limit, search: searchValue, order: order, sortBy: sortBy}
-
-    console.log(params)
     const {data, isLoading} = useGetProductsQuery(params)
 
 

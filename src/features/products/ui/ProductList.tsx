@@ -3,45 +3,50 @@ import {Button, Loading, ProductCard, Select} from "shared/ui";
 import {ArrowRightIcon} from "shared/assets/icons";
 import {trimTextToFullSentence} from "shared/utils";
 import {SortOptions} from "../model/consts.ts";
+import {ProductFilter} from "features/products";
 
-export const ProductList = () => {
+interface ProductListProps {
+    filter: ProductFilter
+}
 
-    const {productList, handleChange, loadMore, isLoading} = useProductList()
+export const ProductList = ({filter}: ProductListProps) => {
+
+    const {productList, handleChange, loadMore, isLoading} = useProductList({filter})
 
     return (
-            <div className="flex flex-col gap-2">
-                <div className="flex justify-end">
-                    <Select handleOnChange={handleChange} className="flex-shrink-0 w-[200px]" options={SortOptions}/>
-                </div>
+        <div className="flex flex-col gap-2">
+            <div className="flex justify-end">
+                <Select handleOnChange={handleChange} className="flex-shrink-0 w-[200px]" options={SortOptions}/>
+            </div>
 
-                <div className=" flex flex-wrap gap-4 justify-between">
-                    {
-                        productList?.map(({id, thumbnail, title, price, description}) => (
-                            <ProductCard
-                                key={id}
-                                imgSrc={thumbnail}
-                                title={title}
-                                content={
-                                    <div className="flex flex-col gap-2">
+            <div className=" flex flex-wrap gap-4 justify-between">
+                {
+                    productList?.map(({id, thumbnail, title, price, description}) => (
+                        <ProductCard
+                            key={id}
+                            imgSrc={thumbnail}
+                            title={title}
+                            content={
+                                <div className="flex flex-col gap-2">
                                         <span
                                             className="text-2xl font-primary text-background-secondary">{price} €</span>
-                                        <p>{trimTextToFullSentence(description, 100)}</p>
-                                        <div className="w-full flex justify-center ">
-                                            <Button size="md" iconAfter={<ArrowRightIcon/>} label="See more"
-                                                    variant="contained"
-                                                    color="primary" shape="square"/>
-                                        </div>
+                                    <p>{trimTextToFullSentence(description, 100)}</p>
+                                    <div className="w-full flex justify-center ">
+                                        <Button size="md" iconAfter={<ArrowRightIcon/>} label="See more"
+                                                variant="contained"
+                                                color="primary" shape="square"/>
                                     </div>
-                                }
-                            />
-                        ))
-                    }
-                </div>
-
-                <div className="w-full flex justify-center">
-                    <Button isLoading={isLoading} onClick={loadMore} label="Load more" variant="contained"
-                            color="primary" shape="square"/>
-                </div>
+                                </div>
+                            }
+                        />
+                    ))
+                }
             </div>
+
+            <div className="w-full flex justify-center">
+                <Button isLoading={isLoading} onClick={loadMore} label="Load more" variant="contained"
+                        color="primary" shape="square"/>
+            </div>
+        </div>
     )
 }
