@@ -6,7 +6,8 @@ import {ProductSort} from "./types.ts";
 export const useProductList = () => {
     const [sortByValue, setSortByValue] = useState<string | undefined>();
     const [order, setOrder] = useState<ProductSort.ASC | ProductSort.DESC | undefined>();
-    const { data } = useProducts({ limit: 20, sortBy: sortByValue, order: order });
+    const [limit, setLimit] = useState<number>(20)
+    const { data, isLoading } = useProducts({ limit: limit, sortBy: sortByValue, order: order });
 
     const productList = useMemo(() => {
         return data?.products || [];
@@ -35,10 +36,16 @@ export const useProductList = () => {
         }
     }, []);
 
+    const loadMore = useCallback(() => {
+        setLimit(limit + 20)
+    }, [limit])
+
     return {
         productList,
         handleChange,
-        sortByValue, // Include this if needed for display or further manipulation
-        order // Include this if needed for display or further manipulation
+        sortByValue,
+        order,
+        loadMore,
+        isLoading
     };
 };
