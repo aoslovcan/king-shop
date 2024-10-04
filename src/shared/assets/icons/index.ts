@@ -1,1 +1,1 @@
-export { ArrowRightIcon, UserIcon, CartIcon, SearchIcon, CloseIcon, LoaderIcon, SelectIcon} from "./Icons"
+export {ArrowRightIcon, UserIcon, CartIcon, SearchIcon, CloseIcon, LoaderIcon, SelectIcon, CheckMarkIcon} from "./Icons"

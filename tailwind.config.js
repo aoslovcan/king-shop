@@ -27,7 +27,7 @@ export default {
           error: "#DC3C3C",
         },
         background: {
-            primary: "#C1DCDC",
+          primary: "#C1DCDC",
           secondary: "#869F9F",
         }
       },
