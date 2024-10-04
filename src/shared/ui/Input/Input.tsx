@@ -52,7 +52,7 @@ interface InputProps {
     error?: boolean
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean
-    label: string,
+    label?: string,
     name: string,
     errorMessage?: string,
     type: string
