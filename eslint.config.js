@@ -2,9 +2,9 @@ import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
-import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin'; // Correct import
+import tsParser from '@typescript-eslint/parser'; // Correct import
 import reactPlugin from 'eslint-plugin-react';
-import tsPlugin from '@typescript-eslint/eslint-plugin';
 import prettierPlugin from 'eslint-plugin-prettier';
 export default [
   {
@@ -26,17 +26,7 @@ export default [
       }
     },
     rules: {
-      'prettier/prettier': [
-        'error',
-        {
-          semi: true,
-          tabWidth: 2,
-          printWidth: 100,
-          singleQuote: true,
-          trailingComma: 'none',
-          jsxBracketSameLine: true
-        }
-      ]
+      'no-console': 'error'
     }
   },
   { languageOptions: { globals: globals.browser } },

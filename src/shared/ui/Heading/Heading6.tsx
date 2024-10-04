@@ -1,3 +1,4 @@
+import React from "react"
 import { HeadingProps } from './types'
 import { getHeadingClassNames } from './styles'
 

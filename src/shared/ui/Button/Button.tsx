@@ -1,7 +1,7 @@
 import React from 'react';
 import { forwardRef, type ForwardedRef } from 'react';
 import { cn, getShapeClasses } from 'shared/utils';
-import { Loader, Icon, Text } from 'shared/ui';
+import { Loader, Text } from 'shared/ui';
 import { getBaseClasses, getLabelStyle, getSizeClasses, getVariantClasses } from './Button.styles';
 import { ButtonProps } from './Button.types';
 

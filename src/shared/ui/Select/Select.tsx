@@ -21,7 +21,9 @@ export const Select = ({ handleOnChange, options }: SelectProps) => {
     // Handle option selection
     const handleOptionClick = (option: Option) => {
         setSelectedOption(option);
-        handleOnChange && handleOnChange(option);
+        if(handleOnChange){
+            handleOnChange(option);
+        }
         setIsOpen(false); // Close dropdown after selecting
     };
 

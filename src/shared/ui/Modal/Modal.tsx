@@ -1,3 +1,4 @@
+import React from "react"
 import { CloseIcon } from 'shared/assets/icons'
 import { cn } from 'shared/utils'
 import * as Dialog from '@radix-ui/react-dialog'
