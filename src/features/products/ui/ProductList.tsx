@@ -1,14 +1,19 @@
 import {useProductList} from "../model/useProductList.ts";
-import {Button, ProductCard} from "shared/ui";
+import {Button, ProductCard, Select} from "shared/ui";
 import {ArrowRightIcon} from "shared/assets/icons";
 import {trimTextToFullSentence} from "shared/utils";
+import {SortOptions} from "../model/consts.ts";
 
 export const ProductList = () => {
 
-    const {productList} = useProductList()
+    const {productList, handleChange} = useProductList()
 
     return (
         <div className="flex flex-col gap-2">
+            <div className="flex justify-end">
+                <Select handleOnChange={ handleChange} className="flex-shrink-0 w-[200px]" options={SortOptions} />
+            </div>
+
             <div className=" flex flex-wrap gap-4 justify-between">
                 {
                     productList?.map(({id, thumbnail, title, price, description}) => (

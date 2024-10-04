@@ -1,6 +1,6 @@
 export interface GeneralApplicationParams  {
     sortBy?: string
-    orderBy?: string
+    order?: string
     search?: string
     limit: number
 }

@@ -6,18 +6,19 @@ export const mergeRTKCache = (
     arg: GeneralApplicationParams
 ) => {
     if (
-        arg.search
+        arg.sortBy ||
+        arg.order || arg.limit
     ) {
-        currentCache.items = newItems.items
+        currentCache.products = newItems.products
         currentCache.meta = newItems.meta
         return
     }
 
-    const existingItemIds = new Set(currentCache.items.map((item) => item.id))
-    const filteredNewItems = newItems.items.filter(
+    const existingItemIds = new Set(currentCache.products.map((item) => item.id))
+    const filteredNewItems = newItems.products.filter(
         (item) => !existingItemIds.has(item.id)
     )
 
-    currentCache.items.push(...filteredNewItems)
+    currentCache.products.push(...filteredNewItems)
     currentCache.meta = newItems.meta
 }
