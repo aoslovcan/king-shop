@@ -1,7 +1,7 @@
 import {mainNavigationContainer, navigation, navigationMenu, navigationMenuItem} from './styles.ts';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import {CartIcon, UserIcon} from "../../../assets/icons";
+import {CartIcon, UserIcon} from "shared/assets/icons";
 
 export const Navigation = () => {
 

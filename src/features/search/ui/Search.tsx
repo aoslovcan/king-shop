@@ -6,7 +6,6 @@ import { useSearch } from "features/search";
 import {useDispatch} from "react-redux";
 import {handleValue} from "features/search";
 
-
 export const Search = () => {
     const { searchValue, control, handleSearchChange } = useSearch();  // Hook returning control and the searchValue
 
@@ -22,6 +21,7 @@ export const Search = () => {
             render={({ field: { value, onChange } }) => (
                 <div className="w-[70%] relative">
                     <Input
+                        placeholder="Looking for specials"
                         onChange={(e) => handleSearchChange(e.target.value)}
                         className="!rounded-2xl h-15"
                         type="search"

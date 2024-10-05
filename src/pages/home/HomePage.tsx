@@ -1,9 +1,9 @@
 import {ProductList} from "features/products";
-import {PageSideBar} from "../../shared/ui/layouts/PageSideBar/PageSideBar.tsx";
+import {PageSideBar} from "shared/ui/layouts/PageSideBar/PageSideBar.tsx";
 import React, {useState} from "react";
-import {FilterIcon} from "../../shared/assets/icons";
-import {SideBar} from "../../shared/ui";
-import {ProductFilter} from "../../widget";
+import {FilterIcon} from "shared/assets/icons";
+import {SideBar} from "shared/ui";
+import {ProductFilter} from "widget";
 
 export const HomePage = () => {
 
@@ -28,10 +28,6 @@ export const HomePage = () => {
             {isSidebar && (<SideBar position="left" isOpen={isSidebar} handleClose={() => setIsSideBar(false)}>
                 <ProductFilter handleValue={setFilterValue}/>
             </SideBar>)}
-
-
         </>
-
-
     )
 };
