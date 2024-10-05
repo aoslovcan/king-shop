@@ -29,7 +29,7 @@ export const ProductList = ({filter}: ProductListProps) => {
                 <Select handleOnChange={handleChange} className="flex-shrink-0 w-[200px]" options={SortOptions}/>
             </div>
 
-            <div className=" flex flex-wrap gap-4 justify-between">
+            <div className=" flex flex-wrap xl:gap-4 lg:gap-2 md:gap-0 justify-between">
                 {
                     productList?.map(({id, thumbnail, title, price, description}) => (
                         <ProductCard
