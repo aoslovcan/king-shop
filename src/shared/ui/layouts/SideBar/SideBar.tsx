@@ -9,7 +9,7 @@ interface SideBarProps {
     handleClose: () => void
 }
 
-export const SideBar = ({children, position = "left", isOpen, handleClose}: SideBarProps) => {
+export const SideBar = ({children, position, isOpen, handleClose}: SideBarProps) => {
 
 
     if (!isOpen) return null; // If not open, do not render the sidebar
