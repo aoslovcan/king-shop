@@ -3,22 +3,27 @@ import { useCallback, useMemo, useState } from "react";
 import {Option} from "shared/utils";
 import {ProductSort} from "./types.ts";
 import {useSelector} from "react-redux";
+import {useModal} from "../../../app/modal";
 
 interface useProductListProps {
     filter: ProductFilter
 }
 
 export const useProductList = ({filter} : useProductListProps) => {
+    const [currentProduct, setCurrentProduct] = useState(null)
     const [sortByValue, setSortByValue] = useState<string | undefined>();
     const [order, setOrder] = useState<ProductSort.ASC | ProductSort.DESC | undefined>();
     const [limit, setLimit] = useState<number>(20)
 
+
+    console.log(currentProduct)
     const searchByValue = useSelector(
         (state) => state?.searchReducer.searchValue
     )
 
     const { data, isLoading } = useProducts({ limit: limit, sortBy: sortByValue, order: order, search: searchByValue });
 
+    const {openModal} = useModal()
     const productList = useMemo(() => {
         if(filter?.range.length){
             const min = filter.range[0]
@@ -60,8 +65,18 @@ export const useProductList = ({filter} : useProductListProps) => {
         setLimit(limit + 20)
     }, [limit])
 
+    const handleOpenDetails = useCallback((id: number) => {
+        if(id && productList){
+            setCurrentProduct(productList.filter((item) => item.id === id))
+            openModal("productDetail")
+
+        }
+    },[productList])
+
     return {
+        handleOpenDetails,
         productList,
+        currentProduct,
         handleChange,
         sortByValue,
         order,

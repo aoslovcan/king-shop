@@ -4,6 +4,8 @@ import {ArrowRightIcon} from "shared/assets/icons";
 import {trimTextToFullSentence} from "shared/utils";
 import {SortOptions} from "../model/consts.ts";
 import {ProductFilter} from "features/products";
+import {useModal} from "app/modal";
+import {ProductDetailPopup} from "./ProductDetails/ProductDetailPopup.tsx";
 
 interface ProductListProps {
     filter: ProductFilter
@@ -11,7 +13,15 @@ interface ProductListProps {
 
 export const ProductList = ({filter}: ProductListProps) => {
 
-    const {productList, handleChange, loadMore, isLoading} = useProductList({filter})
+    const {modals, closeModal} = useModal()
+    const {
+        productList,
+        handleChange,
+        loadMore,
+        isLoading,
+        handleOpenDetails, currentProduct
+    }
+        = useProductList({filter})
 
     return (
         <div className="flex flex-col gap-2">
@@ -32,7 +42,10 @@ export const ProductList = ({filter}: ProductListProps) => {
                                             className="text-2xl font-primary text-background-secondary">{price} €</span>
                                     <p>{trimTextToFullSentence(description, 100)}</p>
                                     <div className="w-full flex justify-center ">
-                                        <Button size="md" iconAfter={<ArrowRightIcon/>} label="See more"
+                                        <Button size="md"
+                                                onClick={() => handleOpenDetails(id)}
+                                                iconAfter={<ArrowRightIcon/>}
+                                                label="See more"
                                                 variant="contained"
                                                 color="primary" shape="square"/>
                                     </div>
@@ -47,6 +60,13 @@ export const ProductList = ({filter}: ProductListProps) => {
                 <Button isLoading={isLoading} onClick={loadMore} label="Load more" variant="contained"
                         color="primary" shape="square"/>
             </div>
+
+            {modals.productDetail && (
+                <ProductDetailPopup
+                    productData={currentProduct}
+                    isOpen={modals.productDetail}
+                    onCloseModal={() => closeModal("productDetail")}/>
+            )}
         </div>
     )
 }
