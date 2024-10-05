@@ -8,7 +8,6 @@ import {useCategories} from "entities/products";
 import {ProductFilter} from "features/products";
 interface ProductFilterProps {
     handleValue: (data : ProductFilter) => void
-    categories: Array<string>
 }
 export const ProductFilter = ({handleValue}: ProductFilterProps) => {
 
