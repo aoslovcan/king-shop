@@ -34,3 +34,9 @@ export type Product = {
     thumbnail: Array<string>
     shippingInformation: string
 }
+
+export type Categories = {
+    slug: string,
+    name: string,
+    url: string,
+}

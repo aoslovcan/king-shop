@@ -4,11 +4,15 @@ import {
     useForm,
 } from 'react-hook-form'
 import {useCallback, useEffect} from "react";
+import {useCategories} from "entities/products";
+import {ProductFilter} from "features/products";
 interface ProductFilterProps {
-    handleValue: (data : {min: number, max: number}) => void
+    handleValue: (data : ProductFilter) => void
     categories: Array<string>
 }
-export const ProductFilter = ({handleValue, categories}: ProductFilterProps) => {
+export const ProductFilter = ({handleValue}: ProductFilterProps) => {
+
+    const {categories} = useCategories()
 
     const {
         control,
@@ -45,30 +49,36 @@ export const ProductFilter = ({handleValue, categories}: ProductFilterProps) => 
                 )}
             />
 
-            {categories?.map((item) => (
-            <Controller
-                key={item}
-                name="categories"
-                control={control}
-                render={({ field: { value = [], onChange } }) => (
-                    <Checkbox
-                        isChecked={value?.includes(item)}
-                        id={item}
-                        label={item}
-                        variant="light"
-                        classNames="mr-0"
-                        handleChecked={(checked) => {
-                            const updateCategories = checked
-                                ? [...value, item] // Add item if checked
-                                : value.filter((id) => id !== item);
-                            onChange(updateCategories)
-                        }}
+            <div className="overflow-y-auto">
+                {categories?.map(({name, slug}) => (
+                    <Controller
+                        key={slug}
+                        name="categories"
+                        control={control}
+                        render={({ field: { value = [], onChange } }) => (
+                            <Checkbox
+                                isChecked={value?.includes(slug)}
+                                id={slug}
+                                label={name}
+                                variant="light"
+                                classNames="mr-0"
+                                handleChecked={(checked) => {
+                                    const updateCategories = checked
+                                        ? [...value, slug] // Add item if checked
+                                        : value.filter((id) => id !== slug);
+                                    onChange(updateCategories)
+                                }}
+                            />
+                        )}
                     />
-                )}
-            />
-            ))}
+                ))}
 
-            {(range || category) && <Button size="md" shape="square" onClick={handleReset} label="Reset"/>}
+            </div>
+
+
+            {(range || category.length > 0) && (
+                <Button size="md" shape="square" onClick={handleReset} label="Reset" />
+            )}
         </div>
     )
 

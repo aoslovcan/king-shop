@@ -1,6 +1,6 @@
 import { baseApi, PRODUCT_TAG } from "shared/api";
 import { mergeRTKCache } from "../model/meargeRTK.ts";
-import { DataWithMeta, Product } from "../model/types.ts";
+import {Categories, DataWithMeta, Product} from "../model/types.ts";
 
 export const productApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
@@ -36,8 +36,17 @@ export const productApi = baseApi.injectEndpoints({
                 params: params,
             }),
         }),
+
+        getCategories: build.query<
+            Array<Categories>
+        >({
+            query: () => ({
+                url: `/products/categories`,
+                method: 'GET',
+            }),
+        }),
     }),
 });
 
 // Correctly export the hook for the query
-export const { useGetProductsQuery, useSearchForProductQuery } = productApi;
+export const { useGetProductsQuery, useSearchForProductQuery, useGetCategoriesQuery } = productApi;
