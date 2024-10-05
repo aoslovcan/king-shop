@@ -1,4 +1,4 @@
-import {useGetProductsQuery} from "entities/products";
+import {useGetProductsQuery, useSearchForProductQuery} from "entities/products";
 
 
 interface useProductsProps {
@@ -7,16 +7,20 @@ interface useProductsProps {
     order?: string
     sortBy?: string
 }
-export const useProducts = ({limit, searchValue, order, sortBy} : useProductsProps) => {
+
+export const useProducts = ({limit, search, order, sortBy}: useProductsProps) => {
 
 
+    console.log(search)
 
-    let params = {limit: limit, search: searchValue, order: order, sortBy: sortBy}
+    let params = {limit: limit, order: order, sortBy: sortBy}
     const {data, isLoading} = useGetProductsQuery(params)
 
+    const {data: searchedData} = useSearchForProductQuery({q: search}, {skip: !search})
 
-    return{
-        data,
+
+    return {
+        data: search ? searchedData : data,
         isLoading
     }
 }

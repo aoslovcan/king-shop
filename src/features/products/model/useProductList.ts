@@ -2,6 +2,7 @@ import {ProductFilter, useProducts} from "features/products";
 import { useCallback, useMemo, useState } from "react";
 import {Option} from "shared/utils";
 import {ProductSort} from "./types.ts";
+import {useSelector} from "react-redux";
 
 interface useProductListProps {
     filter: ProductFilter
@@ -11,7 +12,12 @@ export const useProductList = ({filter} : useProductListProps) => {
     const [sortByValue, setSortByValue] = useState<string | undefined>();
     const [order, setOrder] = useState<ProductSort.ASC | ProductSort.DESC | undefined>();
     const [limit, setLimit] = useState<number>(20)
-    const { data, isLoading } = useProducts({ limit: limit, sortBy: sortByValue, order: order });
+
+    const searchByValue = useSelector(
+        (state) => state?.searchReducer.searchValue
+    )
+
+    const { data, isLoading } = useProducts({ limit: limit, sortBy: sortByValue, order: order, search: searchByValue });
 
     const productList = useMemo(() => {
         if(filter?.range.length){

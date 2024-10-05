@@ -25,8 +25,19 @@ export const productApi = baseApi.injectEndpoints({
                 return currentArg !== previousArg;
             },
         }),
+
+        searchForProduct: build.query<
+            DataWithMeta<Product>,
+            Array<Product>
+        >({
+            query: (params) => ({
+                url: `/products/search`,
+                method: 'GET',
+                params: params,
+            }),
+        }),
     }),
 });
 
 // Correctly export the hook for the query
-export const { useGetProductsQuery } = productApi;
+export const { useGetProductsQuery, useSearchForProductQuery } = productApi;
