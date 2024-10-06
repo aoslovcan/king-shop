@@ -1,1 +1,1 @@
-export { ModalProvider } from './ModalProvider'
+export { ModalProvider } from './ModalProvider.tsx'

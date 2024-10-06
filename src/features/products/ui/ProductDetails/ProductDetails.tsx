@@ -3,26 +3,20 @@ import {Button, Text} from "shared/ui";
 import {Heading2} from "shared/ui/Heading";
 import {CartIcon} from "shared/assets/icons";
 import {useCallback} from "react";
-import {StorageKeys, useStorage} from "shared/lib";
+import {useCartContext} from "widget/Cart"
 
 interface ProductDetailsProps {
     data: Product
 }
 
 export const ProductDetails = ({data} : ProductDetailsProps) => {
+
+    const { addToCart } = useCartContext();
     const {title, price, category, images, shippingInformation, availabilityStatus, brand, description} = data
 
-    const {getParsedItem, setItem} = useStorage()
-    const addToCart = useCallback(() => {
+    const handleAdd = useCallback(() => {
         if (data) {
-            // Get the parsed data from local storage using getParsedItem
-            const currentData = getParsedItem(StorageKeys.PRODUCTS);
-
-            // If currentData exists, append the new data to it, otherwise initialize with [data]
-            const updatedData = currentData ? [...currentData, data] : [data];
-
-            // Save the updated array to local storage
-            setItem(StorageKeys.PRODUCTS, updatedData);
+           addToCart(data)
         }
     }, [data])
     return(
@@ -52,7 +46,7 @@ export const ProductDetails = ({data} : ProductDetailsProps) => {
 
                 <div className="w-full flex justify-center">
                     <Button size="md"
-                            onClick={addToCart}
+                            onClick={handleAdd}
                             iconAfter={<CartIcon/>}
                             label="Add to cart"
                             variant="contained"

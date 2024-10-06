@@ -1,1 +1,1 @@
-export { ModalContext } from './ModalContext'
+export { ModalContext } from './ModalContext.ts'

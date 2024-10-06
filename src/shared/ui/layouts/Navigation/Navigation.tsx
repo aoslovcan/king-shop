@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom';
 import React, {useState} from 'react';
 import {CartIcon, UserIcon} from "shared/assets/icons";
 import {SideBar} from "../SideBar/SideBar.tsx";
-import {Cart, useCart} from "../../../../widget/Cart";
+import {Cart} from "widget/Cart";
+import {useCartContext} from "widget/Cart"
 
 export const Navigation = () => {
 
     const [isOpenCart, setOpenCart] = useState(false)
-
-    const {cartData} = useCart()
+    const { cartData } = useCartContext();  // Get cart data
 
     return (
         <>
