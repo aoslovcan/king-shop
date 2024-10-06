@@ -1,4 +1,4 @@
-import React from "reatc"
+import React from "react"
 import {Modal} from "shared/ui";
 import {ProductDetails} from "./ProductDetails.tsx";
 import {Product} from "entities/products";
