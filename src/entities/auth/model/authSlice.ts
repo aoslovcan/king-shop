@@ -28,8 +28,8 @@ const sessionSlice = createSlice({
   reducers: {
     logout: (state) => {
       // Clear state and session/local storage
-      state.isAuthenticated = false;
       state.token = '';
+      state.user = {};
 
       clearSessionStorage();
     }

@@ -1,14 +1,24 @@
 export const trimTextToFullSentence = (text, maxLength) => {
-    if (text.length <= maxLength) return text; // If text is already shorter than the max length, return as is
+  if (text.length <= maxLength) return text; // If text is already shorter than the max length, return as is
 
-    const trimmedText = text.substring(0, maxLength); // Trim to maxLength
-    const lastDotIndex = trimmedText.lastIndexOf('.'); // Find the last period within that limit
+  const trimmedText = text.substring(0, maxLength); // Trim to maxLength
+  const lastDotIndex = trimmedText.lastIndexOf('.'); // Find the last period within that limit
 
-    // If there's a dot in the trimmed section, return the text up to and including the last full stop
-    if (lastDotIndex !== -1) {
-        return trimmedText.substring(0, lastDotIndex + 1);
-    } else {
-        // If there's no dot, return the trimmed text with three dots
-        return trimmedText + '...';
-    }
+  // If there's a dot in the trimmed section, return the text up to and including the last full stop
+  if (lastDotIndex !== -1) {
+    return trimmedText.substring(0, lastDotIndex + 1);
+  } else {
+    // If there's no dot, return the trimmed text with three dots
+    return trimmedText + '...';
+  }
+};
+
+export const getInitials = (value: string) => {
+  if (!value) return '';
+
+  return value
+    .split(' ') // Split sentence into words
+    .filter((word) => word.length > 0)
+    .map((word) => word.charAt(0).toUpperCase())
+    .join('');
 };

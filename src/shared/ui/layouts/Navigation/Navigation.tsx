@@ -4,15 +4,18 @@ import {
   navigationMenu,
   navigationMenuItem
 } from './styles.ts';
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { CartIcon, UserIcon } from 'shared/assets/icons';
 import { SideBar } from '../SideBar/SideBar.tsx';
 import { Cart } from 'widget/Cart';
 import { useCartContext } from 'widget/Cart';
 import { useModal } from 'app/modal';
 import { LoginFormModal } from 'features/login';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Avatar } from 'shared/ui/Avatar';
+import { getInitials } from 'shared/utils';
+import { Button } from 'shared/ui';
+import { logout } from 'entities/auth';
 
 export const Navigation = () => {
   const [isOpenCart, setOpenCart] = useState(false);
@@ -20,6 +23,11 @@ export const Navigation = () => {
 
   const { modals, openModal, closeModal } = useModal();
   const user = useSelector((state) => state.auth.user);
+
+  const dispatch = useDispatch();
+  const handleLogout = useCallback(() => {
+    dispatch(logout());
+  }, []);
 
   return (
     <>
@@ -37,15 +45,31 @@ export const Navigation = () => {
                 <CartIcon />
               </span>
             </li>
-            <li className={navigationMenuItem}>
+            <li>
               {user && user.firstName && user.lastName ? (
-                <p>{`${user.firstName?.[0]}${user.lastName?.[0]}`}</p>
+                <Avatar
+                  size="sm"
+                  imgSrc={user.image}
+                  nameInitials={getInitials(`${user.firstName} ${user.lastName}`)}
+                />
               ) : (
                 <span className="relative cursor-pointer" onClick={() => openModal('loginModal')}>
                   <UserIcon />
                 </span>
               )}
             </li>
+
+            {user && user.firstName && user.lastName ? (
+              <li className={navigationMenuItem}>
+                <Button
+                  label="Logout"
+                  shape="rounded"
+                  color="primary"
+                  onClick={handleLogout}
+                  size="md"
+                />
+              </li>
+            ) : null}
           </ul>
         </div>
       </div>
