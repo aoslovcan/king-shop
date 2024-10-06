@@ -30,7 +30,7 @@ export const useLoginForm = () => {
 
   const [login, { isLoading }] = useLoginMutation();
   const { closeModal } = useModal();
-  const { showNotification, notification } = useNotification();
+  const { showNotification } = useNotification();
 
   // Use enum values with watch
   const username = watch(LoginFormFields.USERNAME);
