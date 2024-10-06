@@ -3,7 +3,7 @@ import { useCallback, useMemo, useState } from "react";
 import {Option} from "shared/utils";
 import {ProductSort} from "./types.ts";
 import {useSelector} from "react-redux";
-import {useModal} from "../../../app/modal";
+import {useModal} from "app/modal";
 
 interface useProductListProps {
     filter: ProductFilter
@@ -15,8 +15,6 @@ export const useProductList = ({filter} : useProductListProps) => {
     const [order, setOrder] = useState<ProductSort.ASC | ProductSort.DESC | undefined>();
     const [limit, setLimit] = useState<number>(20)
 
-
-    console.log(currentProduct)
     const searchByValue = useSelector(
         (state) => state?.searchReducer.searchValue
     )
