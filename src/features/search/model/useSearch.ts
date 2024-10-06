@@ -5,8 +5,6 @@ export const useSearch = () => {
         control,
         watch,
         setValue,
-        reset,
-        formState: { errors, dirtyFields },
     } = useForm({
         defaultValues: {value: ""},
         mode: 'onChange',

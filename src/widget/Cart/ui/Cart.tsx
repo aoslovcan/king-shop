@@ -1,3 +1,4 @@
+import React from "react";
 import {Heading2} from "shared/ui/Heading";
 import {Text} from "shared/ui";
 import {TrashIcon} from "shared/assets/icons";

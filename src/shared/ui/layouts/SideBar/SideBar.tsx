@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React from "react";
 import {cn} from "shared/utils";
 import {getPosition, SideBarContainer} from "./SideBar.styles.ts";
 import {CloseIcon} from "shared/assets/icons";

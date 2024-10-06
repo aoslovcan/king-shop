@@ -18,7 +18,7 @@ export const Search = () => {
         <Controller
             name="value"
             control={control}
-            render={({ field: { value, onChange } }) => (
+            render={() => (
                 <div className="w-[70%] relative">
                     <Input
                         placeholder="Looking products..."

@@ -1,7 +1,7 @@
+import React from "reatc"
 import {Modal} from "shared/ui";
 import {ProductDetails} from "./ProductDetails.tsx";
 import {Product} from "entities/products";
-import {Heading3} from "shared/ui/Heading";
 
 interface ProductDetailPopupProps {
     isOpen: boolean

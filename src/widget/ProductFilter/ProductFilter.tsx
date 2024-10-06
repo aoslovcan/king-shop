@@ -1,3 +1,4 @@
+import React from "react";
 import {Button, Checkbox, CustomRangeSlider} from "shared/ui";
 import {
     Controller,
@@ -17,7 +18,6 @@ export const ProductFilter = ({handleValue}: ProductFilterProps) => {
         control,
         watch,
         reset,
-        formState: { errors, dirtyFields },
     } = useForm({
         defaultValues: {range: "", categories: []},
         mode: 'onChange',
@@ -28,7 +28,9 @@ export const ProductFilter = ({handleValue}: ProductFilterProps) => {
 
     useEffect(() => {
         if(range || category){
-            handleValue && handleValue({range:range, categories: category})
+            if(handleValue){
+                handleValue({range:range, categories: category})
+            }
         }
     }, [range, category]);
 
@@ -43,7 +45,7 @@ export const ProductFilter = ({handleValue}: ProductFilterProps) => {
             <Controller
                 name="range"
                 control={control}
-                render={({ field: { value, onChange } }) => (
+                render={({ field: { onChange } }) => (
                     <CustomRangeSlider handleValue={onChange} min={50} max={1000}/>
                 )}
             />

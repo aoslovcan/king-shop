@@ -1,5 +1,3 @@
-import {Navigation} from "./layouts/Navigation/Navigation.tsx";
-
 export {OnboardingLayout} from './layouts/OnboardingLayout/OnboardingLayout';
 export {Button} from "./Button/Button";
 export {Loader} from "./Loader/Loader";

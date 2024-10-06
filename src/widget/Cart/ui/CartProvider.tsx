@@ -2,7 +2,7 @@ import React from 'react';
 import {CartContext} from "./CartContext"
 import {useCart} from "widget/Cart";
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }: {children : React.ReactNode}) => {
     const {cartData, addToCart, removeFromCart, totalPrice} = useCart()
 
     return (

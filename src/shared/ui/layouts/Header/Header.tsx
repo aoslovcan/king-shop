@@ -1,3 +1,4 @@
+import React from "react";
 import {Search} from "features/search";
 
 export const Header = () => {

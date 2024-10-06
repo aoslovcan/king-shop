@@ -10,7 +10,7 @@ interface useProductsProps {
 
 export const useProducts = ({limit, search, order, sortBy}: useProductsProps) => {
 
-    let params = {limit: limit, order: order, sortBy: sortBy}
+    const params = {limit: limit, order: order, sortBy: sortBy}
 
     const {data, isLoading} = useGetProductsQuery(params)
     const {data: searchedData} = useSearchForProductQuery({q: search}, {skip: !search})

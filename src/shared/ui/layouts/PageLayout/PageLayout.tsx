@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import {Navigation} from "../Navigation/Navigation.tsx";
 import {Header} from "../Header/Header.tsx";
-import {PageSideBar} from "../PageSideBar/PageSideBar.tsx";
 interface PageLayoutProps {
     children : React.ReactNode
 }

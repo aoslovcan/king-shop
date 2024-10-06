@@ -1,3 +1,4 @@
+import React from "react";
 import {ProductFilter} from "widget";
 
 export const PageSideBar = ({handleFilterValue}: { handleFilterValue: (value: string) => void }) => {

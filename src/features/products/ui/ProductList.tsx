@@ -1,5 +1,6 @@
+import React from "react";
 import {useProductList} from "../model/useProductList.ts";
-import {Button, Loading, ProductCard, Select} from "shared/ui";
+import {Button, ProductCard, Select} from "shared/ui";
 import {ArrowRightIcon} from "shared/assets/icons";
 import {trimTextToFullSentence} from "shared/utils";
 import {SortOptions} from "../model/consts.ts";

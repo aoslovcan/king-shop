@@ -1,8 +1,8 @@
-import { GeneralApplicationParams } from './types'
+import {GeneralApplicationParams, Product} from './types'
 
 export const mergeRTKCache = (
-    currentCache: any,
-    newItems: any,
+    currentCache: {products : Array<Product>},
+    newItems: {products : Array<Product>},
     arg: GeneralApplicationParams
 ) => {
     if (
@@ -10,7 +10,6 @@ export const mergeRTKCache = (
         arg.order || arg.limit
     ) {
         currentCache.products = newItems.products
-        currentCache.meta = newItems.meta
         return
     }
 
@@ -20,5 +19,4 @@ export const mergeRTKCache = (
     )
 
     currentCache.products.push(...filteredNewItems)
-    currentCache.meta = newItems.meta
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import {Product} from "entities/products";
 import {Button, Text} from "shared/ui";
 import {Heading2} from "shared/ui/Heading";
