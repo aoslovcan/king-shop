@@ -12,12 +12,14 @@ import { Cart } from 'widget/Cart';
 import { useCartContext } from 'widget/Cart';
 import { useModal } from 'app/modal';
 import { LoginFormModal } from 'features/login';
+import { useSelector } from 'react-redux';
 
 export const Navigation = () => {
   const [isOpenCart, setOpenCart] = useState(false);
   const { cartData } = useCartContext(); // Get cart data
 
   const { modals, openModal, closeModal } = useModal();
+  const user = useSelector((state) => state.auth.user);
 
   return (
     <>
@@ -36,11 +38,13 @@ export const Navigation = () => {
               </span>
             </li>
             <li className={navigationMenuItem}>
-              <Link to="/about">
+              {user && user.firstName && user.lastName ? (
+                <p>{`${user.firstName?.[0]}${user.lastName?.[0]}`}</p>
+              ) : (
                 <span className="relative cursor-pointer" onClick={() => openModal('loginModal')}>
                   <UserIcon />
                 </span>
-              </Link>
+              )}
             </li>
           </ul>
         </div>

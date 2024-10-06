@@ -59,7 +59,7 @@ export const useLoginForm = () => {
         }).unwrap();
 
         if (!data.error) {
-          navigate('/home');
+          window.location.reload();
           closeModal('loginModal');
           return;
         }
