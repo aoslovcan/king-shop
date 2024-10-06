@@ -5,6 +5,7 @@ import { useLoginMutation } from 'entities/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useModal } from 'app/modal';
+import { useNotification } from 'app/notification';
 
 const defaultValues = {
   [LoginFormFields.USERNAME]: '',
@@ -29,7 +30,9 @@ export const useLoginForm = () => {
 
   const [login, { isLoading }] = useLoginMutation();
   const { closeModal } = useModal();
-  // const { showNotification } = useNotification();
+  const { showNotification, notification } = useNotification();
+
+  console.log(notification);
 
   // Use enum values with watch
   const username = watch(LoginFormFields.USERNAME);
@@ -58,9 +61,10 @@ export const useLoginForm = () => {
           return;
         }
 
-        //showNotification(data?.error, 'ERROR');
+        showNotification(data?.message, 'ERROR');
       } catch (error) {
-        //showNotification(error?.data?.error, 'ERROR');
+        console.log(error);
+        showNotification(error.data?.message, 'ERROR');
       }
     }
   }, [username, password]);

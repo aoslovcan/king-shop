@@ -13,3 +13,4 @@ export { Navigation } from './layouts/Navigation/Navigation';
 export { Header } from './layouts/Header/Header';
 export { SideBar } from './layouts/SideBar/SideBar';
 export { Avatar } from './Avatar';
+export { Notification } from './Notification/Notification';
