@@ -5,6 +5,7 @@ import { StorageKeys } from 'shared/lib';
 
 const tokenData = sessionStorage.getItem(StorageKeys.ACCESS_TOKEN);
 const accessToken = tokenData ? JSON.parse(tokenData) : null; // Parse if stored as JSON
+
 export const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     login: build.mutation<LoginResponse, RequestLoginBody>({
