@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Modal } from 'shared/ui';
 import { LoginForm } from './LoginForm.tsx';
 import { useLoginForm } from '../model/useLoginForm.ts';

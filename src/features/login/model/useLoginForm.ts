@@ -3,11 +3,8 @@ import React, { useCallback, useMemo } from 'react';
 import { LoginFormFields } from './types.ts';
 import { useLoginMutation } from 'entities/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
-//import { useNotification } from 'app/notification';
-import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import { useModal } from '../../../app/modal';
+import { useModal } from 'app/modal';
 
 const defaultValues = {
   [LoginFormFields.USERNAME]: '',
@@ -29,9 +26,6 @@ export const useLoginForm = () => {
     mode: 'onChange',
     resolver: yupResolver(schema)
   });
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const [login, { isLoading }] = useLoginMutation();
   const { closeModal } = useModal();

@@ -1,3 +1,4 @@
+import React from 'react';
 import { LoginInputFields } from '../model/consts.ts';
 import { Control, Controller, DeepRequired, FieldErrorsImpl, FieldValues } from 'react-hook-form';
 import { Input } from 'shared/ui';

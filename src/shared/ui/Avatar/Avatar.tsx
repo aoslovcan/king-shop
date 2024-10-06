@@ -1,3 +1,4 @@
+import React from 'react';
 import { getAvatarClasses, getAvatarSize, getTextClasses } from './Avatar.styles';
 import { AvatarProps } from './Avatar.types';
 import { cn } from 'shared/utils';
