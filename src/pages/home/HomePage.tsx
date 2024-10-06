@@ -4,13 +4,18 @@ import React, { useState } from 'react';
 import { FilterIcon } from 'shared/assets/icons';
 import { SideBar } from 'shared/ui';
 import { ProductFilter } from 'widget';
-import { useMeQuery } from '../../entities/auth';
+import { getToken, useMeQuery } from '../../entities/auth';
+import { StorageKeys } from '../../shared/lib';
 
 export const HomePage = () => {
   const [filterValue, setFilterValue] = useState<string | undefined>();
   const [isSidebar, setIsSideBar] = useState(false);
 
-  useMeQuery();
+  const token = getToken();
+
+  if (token) {
+    useMeQuery({ skip: !token });
+  }
 
   return (
     <>

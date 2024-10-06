@@ -32,8 +32,6 @@ export const useLoginForm = () => {
   const { closeModal } = useModal();
   const { showNotification, notification } = useNotification();
 
-  console.log(notification);
-
   // Use enum values with watch
   const username = watch(LoginFormFields.USERNAME);
   const password = watch(LoginFormFields.PASSWORD);
@@ -63,7 +61,6 @@ export const useLoginForm = () => {
 
         showNotification(data?.message, 'ERROR');
       } catch (error) {
-        console.log(error);
         showNotification(error.data?.message, 'ERROR');
       }
     }
