@@ -9,8 +9,16 @@ export const useCart = () => {
 
     const addToCart = (item) => {
         setCartData((prevData) => {
+            // Check if the item already exists in the cart by comparing the item.id
+            const itemExists = prevData.some(cartItem => cartItem.id === item.id);
+
+            if (itemExists) {
+                return prevData; // If the item already exists, return the current cart data unchanged
+            }
+
+            // If the item is not in the cart, add it
             const updatedData = [...prevData, item];
-            setItem(StorageKeys.PRODUCTS, updatedData);
+            setItem(StorageKeys.PRODUCTS, updatedData); // Update local storage
             return updatedData;
         });
     };
