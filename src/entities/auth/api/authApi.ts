@@ -1,4 +1,4 @@
-import { baseApi } from 'shared/api';
+import { baseApi, CLIENT_TAG } from 'shared/api';
 import { LoginResponse, RequestLoginBody, User } from 'entities/auth';
 import { Tokens } from '../model/types.ts';
 import { StorageKeys } from 'shared/lib';
@@ -13,7 +13,9 @@ export const authApi = baseApi.injectEndpoints({
         url: '/user/login',
         method: 'POST',
         body
-      })
+      }),
+
+      providesTags: CLIENT_TAG
     }),
 
     me: build.query<User, string>({

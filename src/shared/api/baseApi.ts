@@ -22,6 +22,7 @@ import {
 import { env, useStorage, StorageKeys } from 'shared/lib';
 import { getToken } from 'entities/auth';
 import { RootState } from 'app/store/store';
+import { CLIENT_TAG, PRODUCT_TAG } from './tags.ts';
 
 export const baseQuery = fetchBaseQuery({
   baseUrl: env.apiUrl,
@@ -84,6 +85,6 @@ export const baseQueryWithReAuth: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithReAuth, // Use the re-auth base query
-  tagTypes: [],
+  tagTypes: [PRODUCT_TAG, CLIENT_TAG],
   endpoints: () => ({})
 });
