@@ -1,6 +1,6 @@
 import React from "react";
 export interface ModalProps {
-    title: string | React.ReactNode
+    title?: string | React.ReactNode
     closeTrigger?: React.ReactNode
     content: React.ReactNode
     isOpen: boolean

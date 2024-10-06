@@ -53,11 +53,11 @@ interface InputProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean
     label?: string,
-    name: string,
+    name?: string,
     errorMessage?: string,
     type: string
     placeholder?: string
-    value: string
+    value?: string
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(

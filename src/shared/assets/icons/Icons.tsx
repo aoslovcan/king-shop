@@ -30,6 +30,16 @@ export const UserIcon = () => {
     )
 }
 
+export const FilterIcon = () => {
+    return (
+        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd"
+                  d="M3 7C3 6.44772 3.44772 6 4 6H20C20.5523 6 21 6.44772 21 7C21 7.55228 20.5523 8 20 8H4C3.44772 8 3 7.55228 3 7ZM6 12C6 11.4477 6.44772 11 7 11H17C17.5523 11 18 11.4477 18 12C18 12.5523 17.5523 13 17 13H7C6.44772 13 6 12.5523 6 12ZM9 17C9 16.4477 9.44772 16 10 16H14C14.5523 16 15 16.4477 15 17C15 17.5523 14.5523 18 14 18H10C9.44772 18 9 17.5523 9 17Z"
+                  fill="#000000"></path>
+        </svg>
+    )
+}
+
 export const CartIcon = () => {
     return (
         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,3 +94,14 @@ export const CheckMarkIcon = () => {
         </svg>
     );
 };
+
+export const TrashIcon = () =>{
+    return (
+        <svg width="25" height="25" viewBox="0 0 40 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M5 10.5H8.33333M8.33333 10.5H35M8.33333 10.5V35C8.33333 35.9283 8.68452 36.8185 9.30964 37.4749C9.93477 38.1313 10.7826 38.5 11.6667 38.5H28.3333C29.2174 38.5 30.0652 38.1313 30.6904 37.4749C31.3155 36.8185 31.6667 35.9283 31.6667 35V10.5M13.3333 10.5V7C13.3333 6.07174 13.6845 5.1815 14.3096 4.52513C14.9348 3.86875 15.7826 3.5 16.6667 3.5H23.3333C24.2174 3.5 25.0652 3.86875 25.6904 4.52513C26.3155 5.1815 26.6667 6.07174 26.6667 7V10.5M16.6667 19.25V29.75M23.3333 19.25V29.75"
+                stroke="#869F9F" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+    )
+}

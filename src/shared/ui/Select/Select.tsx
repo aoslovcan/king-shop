@@ -1,14 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Option } from "shared/utils";
+import {cn, Option} from "shared/utils";
 import {SelectIcon} from "shared/assets/icons";
 import {dropdownContainer, selectContainer} from "./Select.styles"; // Assuming Option is correctly imported from utils
 
 interface SelectProps {
     handleOnChange?: (item: Option) => void;
     options: Array<Option>;
+    className?: string;
 }
 
-export const Select = ({ handleOnChange, options }: SelectProps) => {
+export const Select = ({ handleOnChange, options, className }: SelectProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ export const Select = ({ handleOnChange, options }: SelectProps) => {
     }, []);
 
     return (
-        <div className="relative inline-block w-full" ref={dropdownRef}>
+        <div className={cn("relative inline-block w-full", className)} ref={dropdownRef}>
             {/* Displayed selected value */}
             <div
                 onClick={toggleDropdown}

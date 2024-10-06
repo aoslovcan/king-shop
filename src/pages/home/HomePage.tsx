@@ -1,110 +1,33 @@
-import {Button, ProductCard} from "../../shared/ui";
-import {ArrowRightIcon} from "../../shared/assets/icons";
+import {ProductList} from "features/products";
+import {PageSideBar} from "shared/ui/layouts/PageSideBar/PageSideBar.tsx";
+import React, {useState} from "react";
+import {FilterIcon} from "shared/assets/icons";
+import {SideBar} from "shared/ui";
+import {ProductFilter} from "widget";
 
 export const HomePage = () => {
 
+    const [filterValue, setFilterValue] = useState<string | undefined>();
+    const [isSidebar, setIsSideBar] = useState(false);
+
     return (
         <>
-            <div className="flex flex-wrap gap-4">
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 1"
-                    content={
-                        <>
-                            <span>200$</span>
-                            <p>This is just a test</p>
-                            <Button iconAfter={<ArrowRightIcon/>} label="Load more" variant="contained" color="primary" shape="square"/>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 2"
-                    content={
-                        <>
-                            <span>150$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 3"
-                    content={
-                        <>
-                            <span>300$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 4"
-                    content={
-                        <>
-                            <span>100$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 4"
-                    content={
-                        <>
-                            <span>100$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 4"
-                    content={
-                        <>
-                            <span>100$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 4"
-                    content={
-                        <>
-                            <span>100$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 4"
-                    content={
-                        <>
-                            <span>100$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-                <ProductCard
-                    imgSrc="https://picsum.photos/200/300"
-                    title="Test 4"
-                    content={
-                        <>
-                            <span>100$</span>
-                            <p>This is just a test</p>
-                        </>
-                    }
-                />
-            </div>
-            <div className="w-full flex justify-center">
-                <Button label="Load more" variant="contained" color="primary" shape="square"/>
+
+            <div className="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col xs:flex-col mt-[60px] h-full gap-4">
+                <div className="w-1/5 h-[100vh] sticky top-16 xl:block lg:block md:block hidden">
+                    <PageSideBar handleFilterValue={setFilterValue}/>
+                </div>
+
+
+                <div className="w-4/5 h-full sm:w-full xs:w-full">
+                    <span onClick={() => setIsSideBar(true)} className="block lg:hidden xl:hidden md:hidden cursor-pointer"><FilterIcon/></span>
+                    <ProductList filter={filterValue}/>
+                </div>
             </div>
 
+            {isSidebar && (<SideBar position="left" isOpen={isSidebar} handleClose={() => setIsSideBar(false)}>
+                <ProductFilter handleValue={setFilterValue}/>
+            </SideBar>)}
         </>
-
-
     )
-
 };

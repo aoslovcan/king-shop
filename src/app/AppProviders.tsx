@@ -5,16 +5,19 @@ import {HelmetProvider} from 'react-helmet-async';
 import {Provider} from 'react-redux';
 import {store} from './store/store.ts';
 import {ModalProvider} from "./modal";
+import {CartProvider} from "widget/Cart";
 
 function AppProviders() {
     return (
         <HelmetProvider>
             <Provider store={store}>
-                <ModalProvider>
-                    <Router>
-                        <AppRoutes/>
-                    </Router>
-                </ModalProvider>
+                <CartProvider>
+                    <ModalProvider>
+                        <Router>
+                            <AppRoutes/>
+                        </Router>
+                    </ModalProvider>
+                </CartProvider>
             </Provider>
         </HelmetProvider>
     );

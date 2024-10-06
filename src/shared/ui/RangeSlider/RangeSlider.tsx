@@ -13,7 +13,6 @@ export const CustomRangeSlider = ({min, max, handleValue} : CustomRangeSliderPro
     // Define state variables for the min and max values
     const [minValue, setMinValue] = useState(min);
     const [maxValue, setMaxValue] = useState(max);
-
     // Handle changes to the min and max values
     const handleChange = (newValue: [number, number]) => {
         setMinValue(newValue[0]); // Update min value
