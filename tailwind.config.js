@@ -6,62 +6,55 @@ export default {
       xs: '250px',
       sm: '540px',
       md: '768px',
-      // => @media (min-width: 768px) { ... }
-
       lg: '1024px',
-      // => @media (min-width: 1024px) { ... }
-
       xl: '1280px',
-      // => @media (min-width: 1280px) { ... }
-
       '2xl': '1536px'
-      // => @media (min-width: 1536px) { ... }
     },
     extend: {
       fontFamily: {
-        primary: ['Poppins', 'sans-serif'],
+        primary: ['Poppins', 'sans-serif']
       },
       colors: {
         color: {
-          primaryText: "#1E1E1E",
-          error: "#DC3C3C",
+          primaryText: '#1E1E1E',
+          error: '#DC3C3C'
         },
         background: {
-          primary: "#C1DCDC",
-          secondary: "#869F9F",
+          primary: '#C1DCDC',
+          secondary: '#869F9F'
         }
       },
 
       backdropBlur: {
-        xs: '1px',
+        xs: '1px'
       },
 
       boxShadow: {
-        base: '0px 0px 0.5px 0.5px #F0ECE5',
+        base: '0px 0px 0.5px 0.5px #F0ECE5'
       },
 
       keyframes: {
         'fade-in': {
           '0%': {
-            opacity: 0,
+            opacity: 0
           },
 
           '100%': {
-            opacity: 1,
-          },
+            opacity: 1
+          }
         },
         'fade-out': {
           '0%': {
-            opacity: 1,
+            opacity: 1
           },
           '100%': {
-            opacity: 0,
-          },
-        },
+            opacity: 0
+          }
+        }
       },
       animation: {
         'fade-in': 'fade-in 0.3s both',
-        'fade-out': 'fade-out 0.3s both',
+        'fade-out': 'fade-out 0.3s both'
       },
       fontSize: {
         '3xs': '8px',

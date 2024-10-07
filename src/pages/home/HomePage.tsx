@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import { FilterIcon } from 'shared/assets/icons';
 import { SideBar } from 'shared/ui';
 import { ProductFilter } from 'widget';
-import { getToken, useMeQuery } from '../../entities/auth';
-import { StorageKeys } from '../../shared/lib';
+import { getToken, useMeQuery } from 'entities/auth';
 
 export const HomePage = () => {
   const [filterValue, setFilterValue] = useState<string | undefined>();
