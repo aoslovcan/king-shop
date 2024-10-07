@@ -1,62 +1,31 @@
 ## Before starting
 
+Create a .env file with VITE_API_URL="https://dummyjson.com" variable.
+
 ### `npm install`
+
+After creating .env file, you run this command to install all necessary libraries.
 
 ## Available Scripts
 
 ### `npm run dev`
-Starts the development server using [Vite](https://vitejs.dev/). This will serve your project locally and allow you to preview changes in real time as you develop.
+Starts the development server using.
 
-```bash
-npm run dev
+### `npm run lint`
+Start the command which is checking styles of code which is defined by eslint.
 
-# React + TypeScript + Vite
+### About app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+When the application starts, the home page opens, displaying a list of products, a filter section, and a header with a search option.
 
-Currently, two official plugins are available:
+Filtering: You can filter products by adjusting the price range or selecting any of the available categories. The filtering is performed on the frontend without making an API call.
+Sorting: Products can be sorted by selecting one of the available sorting options. This triggers an API call to retrieve the sorted data from the backend.
+Search: You can search for products by entering a keyword. The search is triggered after the user has typed at least two characters. This action will call an API that returns products matching the search query.
+To view more details about a product, you can click the "See More" button, which opens a modal displaying the product details. In this modal, you can add the product to the cart.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Cart Management: Cart data is stored in the session storage, so it will be lost if the browser window is closed. The functionality for adding, deleting, and rendering cart data is handled through React Context and a Provider component.
+The app also includes a login feature. Upon logging in, tokens are stored in session storage. If needed, a "Remember Me" option can be added to store tokens in local storage for persistent sessions.
 
-## Expanding the ESLint configuration
+All API management is handled using RTK Query and Redux. The component styling is done using Tailwind CSS.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname
-    }
-  }
-});
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules
-  }
-});
-```
